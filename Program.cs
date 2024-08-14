@@ -43,7 +43,7 @@ namespace PatternAndMatrixTool
             Console.WriteLine("Choose a pattern to generate:");
             Console.WriteLine("1. Pyramid");
             Console.WriteLine("2. Diamond");
-            Console.WriteLine("3. Checkerboard (Coming Soon)");
+            Console.WriteLine("3. Checkerboard");
             Console.Write("Choose a pattern: ");
 
             string choice = Console.ReadLine();
@@ -55,6 +55,9 @@ namespace PatternAndMatrixTool
                     break;
                 case "2":
                     GenerateDiamond();
+                    break;
+                case "3":
+                    GenerateCheckerboard();
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -127,14 +130,41 @@ namespace PatternAndMatrixTool
             }
         }
 
-
-
-        static void MatrixOperations()
+        static void GenerateCheckerboard()
         {
-            Console.Clear();
-            Console.WriteLine("Matrix Operations (To be implemented)");
-            // Placeholder for matrix operations logic
-            Console.ReadLine();
+            Console.Write("Enter the size of the checkerboard (NxN): ");
+            if (int.TryParse(Console.ReadLine(), out int size))
+            {
+                for (int i = 1; i <= size; i++)
+                {
+                    for (int j = 1; j <= size; j++)
+                    {
+                        if ((i + j) % 2 == 0)
+                        {
+                            Console.Write("X");
+                        }
+                        else
+                        {
+                            Console.Write("O");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+
+            }
+
+        }
+            static void MatrixOperations()
+            {
+                Console.Clear();
+                Console.WriteLine("Matrix Operations (To be implemented)");
+                // Placeholder for matrix operations logic
+                Console.ReadLine();
+            }
         }
     }
-}
+
