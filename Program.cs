@@ -40,10 +40,52 @@ namespace PatternAndMatrixTool
         static void GeneratePatterns()
         {
             Console.Clear();
-            Console.WriteLine("Pattern Generation (To be implemented)");
-            // Placeholder for pattern generation logic
-            Console.ReadLine();
+            Console.WriteLine("Choose a pattern to generate:");
+            Console.WriteLine("1. Pyramid");
+            Console.WriteLine("2. Diamond (Coming Soon)");
+            Console.WriteLine("3. Checkerboard (Coming Soon)");
+            Console.Write("Choose a pattern: ");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    GeneratePyramid();
+                    break;
+                // Additional patterns can be added here
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+
+            Console.ReadLine(); // Pause before returning to the main menu
         }
+
+        static void GeneratePyramid()
+        {
+            Console.Write("Enter the number of rows for the pyramid: ");
+            if (int.TryParse(Console.ReadLine(), out int rows))
+            {
+                for (int i = 1; i <= rows; i++)
+                {
+                    for (int j = 1; j <= rows - i; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                    for (int k = 1; k <= (2 * i) - 1; k++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+
 
         static void MatrixOperations()
         {
