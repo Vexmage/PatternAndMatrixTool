@@ -42,7 +42,7 @@ namespace PatternAndMatrixTool
             Console.Clear();
             Console.WriteLine("Choose a pattern to generate:");
             Console.WriteLine("1. Pyramid");
-            Console.WriteLine("2. Diamond (Coming Soon)");
+            Console.WriteLine("2. Diamond");
             Console.WriteLine("3. Checkerboard (Coming Soon)");
             Console.Write("Choose a pattern: ");
 
@@ -53,7 +53,9 @@ namespace PatternAndMatrixTool
                 case "1":
                     GeneratePyramid();
                     break;
-                // Additional patterns can be added here
+                case "2":
+                    GenerateDiamond();
+                    break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -85,6 +87,46 @@ namespace PatternAndMatrixTool
                 Console.WriteLine("Invalid input. Please enter a number.");
             }
         }
+
+        static void GenerateDiamond()
+        {
+            Console.Write("Enter the number of rows for the diamond (half): ");
+            if (int.TryParse(Console.ReadLine(), out int rows))
+            {
+                // Upper part of the diamond
+                for (int i = 1; i <= rows; i++)
+                {
+                    for (int j = 1; j <= rows - i; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                    for (int k = 1; k <= (2 * i) - 1; k++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+
+                // Lower part of the diamond
+                for (int i = rows - 1; i >= 1; i--)
+                {
+                    for (int j = 1; j <= rows - i; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                    for (int k = 1; k <= (2 * i) - 1; k++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+
 
 
         static void MatrixOperations()
