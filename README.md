@@ -15,3 +15,9 @@ PatternAndMatrixTool is a C# console application designed to help users generate
    - Run the application from the console.
    - Choose an option from the main menu to either generate patterns or perform matrix operations.
    - Follow the prompts to enter the necessary values, and view the results directly in the console.
+
+## Future Enhancements
+
+   - Additional pattern types.
+   - More advanced matrix operations.
+   - Improved user input validation and error handling.
