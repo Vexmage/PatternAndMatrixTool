@@ -158,13 +158,91 @@ namespace PatternAndMatrixTool
             }
 
         }
-            static void MatrixOperations()
+        static void MatrixOperations()
+        {
+            Console.Clear();
+            Console.WriteLine("Matrix Operations:");
+            Console.WriteLine("1. Matrix Addition");
+            Console.Write("Choose an operation: ");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
             {
-                Console.Clear();
-                Console.WriteLine("Matrix Operations (To be implemented)");
-                // Placeholder for matrix operations logic
-                Console.ReadLine();
+                case "1":
+                    MatrixAddition();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
             }
+
         }
+
+        static void MatrixAddition()
+        {
+            Console.Clear();
+            Console.WriteLine("Matrix Addition:");
+
+            // Get the dimensions of the matrices
+            Console.Write("Enter the number of rows: ");
+            int rows = int.Parse(Console.ReadLine());
+            Console.Write("Enter the number of columns: ");
+            int cols = int.Parse(Console.ReadLine());
+
+            // Initialize matrices
+            int[,] matrix1 = new int[rows, cols];
+            int[,] matrix2 = new int[rows, cols];
+            int[,] resultMatrix = new int[rows, cols];
+
+            // Input values for the first matrix
+            Console.WriteLine("Enter values for the first matrix:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"Matrix1[{i},{j}]: ");
+                    matrix1[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            // Input values for the second matrix
+            Console.WriteLine("Enter values for the second matrix:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"Matrix2[{i},{j}]: ");
+                    matrix2[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            // Perform addition
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    resultMatrix[i, j] = matrix1[i, j] + matrix2[i, j];
+                }
+            }
+
+            // Display the result
+            Console.WriteLine("Resultant Matrix after Addition:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(resultMatrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            // Pause the console so the user can see the output
+            Console.WriteLine("Press any key to return to the main menu...");
+            Console.ReadKey();
+
+        }
+
+
     }
+}
 
