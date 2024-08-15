@@ -165,6 +165,7 @@ namespace PatternAndMatrixTool
             Console.WriteLine("1. Matrix Addition");
             Console.WriteLine("2. Matrix Subtraction");
             Console.WriteLine("3. Matrix Multiplication");
+            Console.WriteLine("4. Matrix Transposition");
             Console.Write("Choose an operation: ");
 
             string choice = Console.ReadLine();
@@ -179,6 +180,9 @@ namespace PatternAndMatrixTool
                     break;
                 case "3":
                     MatrixMultiplication();
+                    break;
+                case "4":
+                    MatrixTransposition();
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -387,6 +391,60 @@ namespace PatternAndMatrixTool
             Console.ReadKey();
 
         }
+
+        static void MatrixTransposition()
+        {
+            Console.Clear();
+            Console.WriteLine("Matrix Transposition:");
+
+            // Get the dimensions of the matrix
+            Console.Write("Enter the number of rows: ");
+            int rows = int.Parse(Console.ReadLine());
+            Console.Write("Enter the number of columns: ");
+            int cols = int.Parse(Console.ReadLine());
+
+            // Initialize the matrix
+            int[,] matrix = new int[rows, cols];
+            int[,] transposedMatrix = new int[cols, rows];
+
+            // Input values for the matrix
+            Console.WriteLine("Enter values for the matrix:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"Matrix[{i},{j}]: ");
+                    matrix[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            // Perform transposition
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    transposedMatrix[j, i] = matrix[i, j];
+                }
+            }
+
+            // Display the result
+            Console.WriteLine("Transposed Matrix:");
+            for (int i = 0; i < cols; i++)
+            {
+                for (int j = 0; j < rows; j++)
+                {
+                    Console.Write(transposedMatrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            // Pause the console so the user can see the output
+            Console.WriteLine("Press any key to return to the main menu...");
+            Console.ReadKey();
+
+        }
+
+
     }
 }
 
